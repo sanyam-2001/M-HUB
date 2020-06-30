@@ -118,6 +118,14 @@ html{
     .result .card-footer, .trend .card-footer{
         height: 10vh;
     }
+    .search-result-options{
+        flex-direction: column;
+    }
+    .search-result-options .card{
+        width: 70%;
+        margin: auto;
+        margin-bottom: 5%;
+    }
   }
 
 .container-fluid{

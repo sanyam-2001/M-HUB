@@ -1510,11 +1510,29 @@ for(var i=0;i<5;i++){
     xhr.open('GET', 'https://www.omdbapi.com/?t='+imdb[Math.floor(Math.random()*240)].Title+'&apikey=5ee63658', true);
     xhr.onload= function(){
         temp=JSON.parse(this.responseText);
+
         var div = $('<div></div>').addClass('col-md-2');
         var card = $('<div></div>').addClass('card');
         var card_b = $('<div></div>').addClass('card-body').html('<img src="'+temp.Poster+'" alt="'+temp.Title+'">');
         var card_f = $('<div></div>').addClass('card-footer text-center').text(temp.Title).css({"color": "black", "font-size":"10px"});
-        $(card).append(card_b, card_f);
+        
+        var id;
+        //
+        var converter =new XMLHttpRequest();
+        converter.open('GET', 'https://api.themoviedb.org/3/find/'+temp.imdbID+'?api_key=7ce6f3444cda42a6506370e782b2e857&language=en-US&external_source=imdb_id', false);
+        converter.onload = function (){
+            
+             id = $('<div></div>').addClass('unique').text(JSON.parse(this.responseText).movie_results[0].id);
+            
+        }
+        converter.send();
+         
+        
+        
+        
+        
+        
+        $(card).append(card_b, card_f, id);
         $(div).append(card);
         $('.carousel').append(div)
 

@@ -27,7 +27,7 @@ $('#search-submit').on('click', function(){
         req.open('GET', 'https://www.omdbapi.com/?s='+$('#search').val()+'&apikey=5ee63658', true);
         req.onload= function (){
             var obj = JSON.parse(this.responseText);
-            console.log(obj)
+            
             if(obj.Response=="True"){
                
                 for(var i=0;i<obj.Search.length && i<5;i++){
@@ -35,7 +35,22 @@ $('#search-submit').on('click', function(){
                     var col = $('<div></div>').addClass('col-md-2');
                     var text = $('<div></div>').addClass('card-footer').text(obj.Search[i].Title);
                     var image = $('<div></div>').addClass('card-body').html('<img src="'+obj.Search[i].Poster+'" style="height:100px; width:100px;" alt="">');
-                    $(div).append(image, text);
+                    var id;
+                    //
+                    var converter =new XMLHttpRequest();
+                    converter.open('GET', 'https://api.themoviedb.org/3/find/'+obj.Search[i].imdbID+'?api_key=7ce6f3444cda42a6506370e782b2e857&language=en-US&external_source=imdb_id', false);
+                    converter.onload = function (){
+                        
+                         id = $('<div></div>').addClass('unique').text(JSON.parse(this.responseText).movie_results[0].id);
+                        
+                    }
+                    converter.send();
+                     
+                    
+                    
+                    
+                    //
+                    $(div).append(image, text, id);
                     $(col).append(div);
                     $('.search-result-options').append(col);
                 }
@@ -64,3 +79,18 @@ document.getElementById('search').addEventListener('keydown', function (e) {
         document.getElementById('search-submit').click();
     }
     })
+
+document.addEventListener('click', function(e){
+    if(e.target.parentElement.classList.contains('card')){e.target.parentElement.click();}
+    else if(e.target.parentElement.parentElement.classList.contains('card')){e.target.parentElement.parentElement.click();}
+    
+});
+
+document.addEventListener('click', function(e){
+    if(e.target.classList.contains('card')){localStorage.setItem('query', e.target.children[2].innerText);}
+    localStorage.setItem('query', e.target.children[2].innerText);
+    
+})
+
+
+

@@ -142,8 +142,16 @@ html{
 }
 .search-result-options .card{
     overflow: hidden;
+  height: 100%;
     
 }
 .search-result-options{
+    display: none;
+    width: 70%;
+}
+img{
+    pointer-events: all;
+}
+.unique{
     display: none;
 }

@@ -1,0 +1,17 @@
+ul li a::after{
+    content: '';
+    display: block;
+    margin-top: 3px;
+    height: 2px;
+    width: inherit;
+    background-color: whitesmoke;
+    transform-origin: left;
+    transform: scaleX(0);
+    transition: 0.3s ease-in;
+}
+
+
+ul li a:hover::after, .active::after{
+    transform-origin: right;
+    transform: scaleX(1);
+}

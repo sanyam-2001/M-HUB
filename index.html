@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.0/css/all.css" integrity="sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ" crossorigin="anonymous">
+    <link rel="stylesheet" href="./CSS/index-style.css">
+    <link rel="stylesheet" href="./CSS/nav.css">
+</head>
+<body >
+
+    
+<nav class="navbar navbar-expand-md bg-dark navbar-dark mw-100" style="justify-content: space-between;">
+
+    <a class="navbar-brand ml-4" href="#">M-HUB</a>
+        
+    <div class="collapse navbar-collapse" id="collapsibleNavbar"  >
+        <ul class="navbar-nav mx-5">
+        <li class="nav-item mx-2">
+            <a class="nav-link active" data-toggle="tooltip" title="Home-Page" href="index.html">Home</a>
+        </li>
+        <li class="nav-item mx-2">
+            <a class="nav-link"   data-toggle="tooltip" title="Discover New Movies" href="#exp">Explore</a>
+        </li>
+        <li class="nav-item mx-2">
+            <a class="nav-link" data-toggle="tooltip" title="Trending Topics" href="#">Trending</a>
+        </li>
+        <li class="nav-item mx-2">
+            <a class="nav-link" data-toggle="tooltip" title="Your Favourite Movies" href="#">Favourites</a>
+        </li>
+        <li class="nav-item mx-2">
+            <a class="nav-link disabled" data-toggle="tooltip" title="Resuts" href="#">Search-Results</a>
+        </li>
+        </ul>
+    </div>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+</nav>
+
+<div class="row bg-light">
+    <div class="col-lg-6 mx-auto my-5" style="display: flex;">
+        <input type="text"  class="form-control my-5" id="search" placeholder="Movies And T.V. Shows">
+        <button class="btn border ml-5 w-25 my-5 button-transition" id="search-submit" style="position: relative; z-index: 1;">Search</button>
+    </div>
+</div>
+
+<div class="display-4 text-center my-2">To<span class="bg-primary">day's</span> <span class="bg-warning">Pick</span>s</div>
+<br>
+
+<div class="row mx-auto carousel mt-5 mb-5" style="width: 80%;justify-content: space-around;">
+    <!-- Imdb Picks in ImdbPicks.js -->
+</div>
+<hr>
+
+<div class="display-4 text-center" style="margin: 5%;"  id="exp" >  <span class="bg-primary">Exp</span>lo<span class="bg-warning">re</span> <br><h6  class="text-muted my-3">Explore and Discover New Movies</h6> </div>
+
+    <div class="row" style="margin-bottom: 10%;">
+        <div class="col-md-4 mx-auto">
+            <div class="sort" >
+                
+                <select class="form-control my-3" id="list" name="sellist1">
+                  <option>Popularity</option>
+                  <option>Revenue</option>
+                  <option>Local Vote Average</option>
+                  <option>Release Date</option>
+                </select>  
+                <select class="form-control my-3" id="list2" name="sellist2">
+                  <option>Movies</option>
+
+                  <option>T.V</option>
+                  
+                </select>  
+
+                <button class="btn btn-primary w-100" id="sort-submit">Search</button>
+               
+            </div>
+            
+
+
+
+        </div>
+        
+    </div>
+
+    <div class="row pb-5 mt-5">
+        
+        <div class="col-md-1 left text-right"><i class="fas fa-arrow-alt-circle-left  icons"></i></div>
+        <div class="col-md-10 bg-dark result p-5 mx-auto" id="scroller" style="border-radius: 4px;" ></div>
+        <div class="col-md-1 right"><i class="fas fa-arrow-alt-circle-right icons"></i></div>
+        
+     
+    </div>
+
+
+
+
+
+    <!-- Scripts -->
+    
+    <script src="./Script/init.js"></script>
+    <script src="./Script/ImdbPicks.js"></script>
+    <script src="./Script/explore.js"></script>
+    
+
+    
+   
+
+</body>
+</html>

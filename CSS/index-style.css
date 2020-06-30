@@ -1,0 +1,115 @@
+*{
+    max-width: 100%;
+}
+html{
+    scroll-behavior: smooth;
+}
+
+
+/* Submit Button */
+.button-transition{
+   
+    position: relative;
+   
+}
+.button-transition::after{
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgb(55, 84, 214, 0.5);
+    z-index: -1;
+    transform-origin: left;
+    transform: scaleX(0);
+    transition: 0.5s ease-in;
+}
+
+.button-transition:hover::after{
+    transform-origin: right;
+    transform: scaleX(1);
+}
+.button-transition{
+    background-color: white;
+}
+
+.form-control, .button-transition{
+    box-shadow: 0.5px 0.5px 10px tomato;
+    font-weight: bold;
+}
+
+/*Card Style*/
+.card{
+    transition: 0.250s ease;
+    
+}
+.card:hover{
+    transform: scale3d(1.25, 1.25, 1);
+    cursor: pointer;
+}
+.card{
+    box-shadow: 1px 1px 10px black;
+}
+/* Card Hover Extra */
+
+.card::before{
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgb(95, 95, 95, 0.5);
+    z-index: 1;
+    transform-origin: left;
+    transform: scaleX(0);
+    transition: 0.250s ease-in;
+    
+}
+.card:hover::before{
+    transform: scaleX(1);
+    
+}
+
+.card img, .card-footer{
+    position: relative;
+    z-index: 2;
+    
+}
+.card-footer{
+    height: 8vh;
+}
+
+
+.sort .form-control{
+    box-shadow: none;
+}
+
+
+.result::-webkit-scrollbar {
+    display: none;
+}
+
+/* Hide scrollbar for IE, Edge and Firefox */
+.result {
+  -ms-overflow-style: none;  /* IE and Edge */
+  scrollbar-width: none;  /* Firefox */
+  display: flex;
+  overflow-x: scroll;
+}
+.icons{
+    font-size: 50px;
+    position: relative;
+    top: 50%;
+    transform: translateY(-50%);
+    transition: 0.25s ease-in;
+    cursor: pointer;
+}
+
+@media only screen and (max-width: 768px) {
+    .icons{
+        display: none;
+    }
+  }
+

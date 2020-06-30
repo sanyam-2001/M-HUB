@@ -48,7 +48,18 @@
         <input type="text"  class="form-control my-5" id="search" placeholder="Movies And T.V. Shows">
         <button class="btn border ml-5 w-25 my-5 button-transition" id="search-submit" style="position: relative; z-index: 1;">Search</button>
     </div>
+    
 </div>
+<div class="search-result-options my-5" style="justify-content: space-around; display: flex;">
+    
+    <!-- <div class="container">
+        <div class="col-md-4">Titanic</div>
+        <div class="col-md-2"><img src="" alt="Hello"></div>
+    </div> -->
+    
+</div>
+<hr>
+
 
 <div class="display-4 text-center my-2">To<span class="bg-primary">day's</span> <span class="bg-warning">Pick</span>s</div>
 <br>
@@ -109,7 +120,13 @@
      
     </div>
 
-
+    <div class="container-fluid">
+        <div class="error bg-light">
+            <div class="head text-center p-3" style="font-size: 30px;"><i class="fas fa-exclamation-triangle"></i><span class="error-head"></span><i class="fas fa-exclamation-triangle"></i></div>
+            <div class="chest text-center p-5"></div>
+            <div class="feet text-center p-3" style="font-size: 30px;"><i style="cursor: pointer;" class="fas fa-times-circle"></i></div>
+        </div>
+    </div>
     <footer class="bg-dark text-light text-center p-3" style="letter-spacing: 2px;">--This Website is a Non-Profit Summer Project Maintained by Github/Sanyam2001--</footer>
 
     <!-- Scripts -->
@@ -118,6 +135,7 @@
     <script src="./Script/ImdbPicks.js"></script>
     <script src="./Script/explore.js"></script>
     <script src="./Script/trending.js"></script>
+    <script src="./Script/search.js"></script>
     
 
     

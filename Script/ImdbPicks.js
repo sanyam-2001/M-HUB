@@ -1515,7 +1515,8 @@ for(var i=0;i<5;i++){
         var card = $('<div></div>').addClass('card');
         var card_b = $('<div></div>').addClass('card-body').html('<img src="'+temp.Poster+'" alt="'+temp.Title+'">');
         var card_f = $('<div></div>').addClass('card-footer text-center').text(temp.Title).css({"color": "black", "font-size":"10px"});
-        
+        var type = $('<div></div>').addClass('unique').text('movie');
+         
         var id;
         //
         var converter =new XMLHttpRequest();
@@ -1532,7 +1533,7 @@ for(var i=0;i<5;i++){
         
         
         
-        $(card).append(card_b, card_f, id);
+        $(card).append(card_b, card_f, id, type);
         $(div).append(card);
         $('.carousel').append(div)
 

@@ -12,7 +12,9 @@ var explore = new XMLHttpRequest();
             var card_b = $('<div></div>').addClass('card-body').html('<img src="https://image.tmdb.org/t/p/w500'+response[i].poster_path+'" alt="'+response[i].title+'">');
             var card_f = $('<div></div>').addClass('card-footer text-center').text(response[i].title).css({"color": "black", "font-size":"10px"});
             var id  = $('<div></div>').addClass('unique').text(response[i].id);
-            $(card).append(card_b, card_f, id);
+            var type = $('<div></div>').addClass('unique').text('movie');
+
+            $(card).append(card_b, card_f, id, type);
             $(div).append(card);
             $('.trend').append(div);
            }
@@ -22,8 +24,10 @@ var explore = new XMLHttpRequest();
             var card_b = $('<div></div>').addClass('card-body').html('<img src="https://image.tmdb.org/t/p/w500'+response[i].poster_path+'" alt="'+response[i].name+'">');
             var card_f = $('<div></div>').addClass('card-footer text-center').text(response[i].name).css({"color": "black", "font-size":"10px"});
             var id  = $('<div></div>').addClass('unique').text(response[i].id);
+            var type = $('<div></div>').addClass('unique').text('tv');
+
             
-            $(card).append(card_b, card_f, id);
+            $(card).append(card_b, card_f, id, type);
             $(div).append(card);
             $('.trend').append(div);
            }

@@ -10,12 +10,15 @@ var response;
         
 
         for (var i=0;i<response.length;i++){
+            
             var div = $('<div></div>').addClass('col-md-3');
             var card = $('<div></div>').addClass('card');
             var card_b = $('<div></div>').addClass('card-body').html('<img src="https://image.tmdb.org/t/p/w500'+response[i].poster_path+'" alt="'+response[i].title+'">');
             var card_f = $('<div></div>').addClass('card-footer text-center').text(response[i].title).css({"color": "black", "font-size":"10px"});
             var id  = $('<div></div>').addClass('unique').text(response[i].id);
-            $(card).append(card_b, card_f, id);
+            type = $('<div></div>').addClass('unique').text('movie');
+            
+            $(card).append(card_b, card_f, id, type);
             $(div).append(card);
             $('.result').append(div);
         }
@@ -71,7 +74,10 @@ function param(inp){
                 var card = $('<div></div>').addClass('card');
                 var card_b = $('<div></div>').addClass('card-body').html('<img src="https://image.tmdb.org/t/p/w500'+response[i].poster_path+'" alt="'+response[i].title+'">');
                 var card_f = $('<div></div>').addClass('card-footer text-center').text(response[i].title).css({"color": "black", "font-size":"10px"});
-                $(card).append(card_b, card_f);
+                var id  = $('<div></div>').addClass('unique').text(response[i].id);
+                var type = $('<div></div>').addClass('unique').text('movie');
+                
+                $(card).append(card_b, card_f, id, type);
                 $(div).append(card);
                 $('.result').append(div);
             }
@@ -95,7 +101,9 @@ function param(inp){
                 var card = $('<div></div>').addClass('card');
                 var card_b = $('<div></div>').addClass('card-body').html('<img src="https://image.tmdb.org/t/p/w500'+response[i].poster_path+'" alt="'+response[i].name+'">');
                 var card_f = $('<div></div>').addClass('card-footer text-center').text(response[i].name).css({"color": "black", "font-size":"10px"});
-                $(card).append(card_b, card_f);
+                var id  = $('<div></div>').addClass('unique').text(response[i].id);
+                var type = $('<div></div>').addClass('unique').text('tv');
+                $(card).append(card_b, card_f, id, type);
                 $(div).append(card);
                 $('.result').append(div);
             }

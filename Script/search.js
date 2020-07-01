@@ -29,20 +29,26 @@ $('#search-submit').on('click', function(){
             var obj = JSON.parse(this.responseText);
             
             if(obj.Response=="True"){
-               
                 for(var i=0;i<obj.Search.length && i<5;i++){
                     var div = $('<div></div>').addClass('card');
                     var col = $('<div></div>').addClass('col-md-2');
                     var text = $('<div></div>').addClass('card-footer').text(obj.Search[i].Title);
                     var image = $('<div></div>').addClass('card-body').html('<img src="'+obj.Search[i].Poster+'" style="height:100px; width:100px;" alt="">');
-                    var id;
+                    var id, type;
                     //
                     var converter =new XMLHttpRequest();
                     converter.open('GET', 'https://api.themoviedb.org/3/find/'+obj.Search[i].imdbID+'?api_key=7ce6f3444cda42a6506370e782b2e857&language=en-US&external_source=imdb_id', false);
                     converter.onload = function (){
-                        
-                         id = $('<div></div>').addClass('unique').text(JSON.parse(this.responseText).movie_results[0].id);
-                        
+                        if(obj.Search[i].Type=="movie"){
+
+                            type = $('<div></div>').addClass('unique').text('movie');
+                            id = $('<div></div>').addClass('unique').text(JSON.parse(this.responseText).movie_results[0].id);
+                        }
+                        if(obj.Search[i].Type=="series"){
+                            type = $('<div></div>').addClass('unique').text('tv');
+
+                            id = $('<div></div>').addClass('unique').text(JSON.parse(this.responseText).tv_results[0].id);
+                        }
                     }
                     converter.send();
                      
@@ -50,7 +56,7 @@ $('#search-submit').on('click', function(){
                     
                     
                     //
-                    $(div).append(image, text, id);
+                    $(div).append(image, text, id, type);
                     $(col).append(div);
                     $('.search-result-options').append(col);
                 }
@@ -87,8 +93,10 @@ document.addEventListener('click', function(e){
 });
 
 document.addEventListener('click', function(e){
-    if(e.target.classList.contains('card')){localStorage.setItem('query', e.target.children[2].innerText);}
-    localStorage.setItem('query', e.target.children[2].innerText);
+    if(e.target.classList.contains('card')){
+        localStorage.setItem('query', e.target.children[2].innerText);
+        localStorage.setItem('type', e.target.children[3].innerText);
+    }
     
 })
 

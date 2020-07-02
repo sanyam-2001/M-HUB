@@ -6,7 +6,7 @@ req.onload = function(){
     subreq.open('GET', 'https://omdbapi.com/?i='+tmdb.imdb_id+'&plot=full&apikey=5ee63658');
     subreq.onload = function (){
         var omdb = JSON.parse(this.responseText);
-        // console.log(tmdb, omdb);
+         //console.log(tmdb, omdb);
        $('.poster').html('<img src="'+omdb.Poster+'" alt=""><div class="card-footer text-center"><button class="btn btn-primary" style="box-shadow: 1px 1px 5px black;">Add to Favourites <i class="fas fa-heart"></i></button></div>');
         $('#plot').text(tmdb.overview);
         $('#year').text(omdb.Year);
@@ -20,7 +20,7 @@ req.onload = function(){
         $('#title').text(tmdb.original_title);
         $('#r1').text(omdb.imdbRating);
         $('#r2').text(omdb.Rated);
-        $('#r3').text(omdb.Ratings[2].Value);
+        $('#r3').text(omdb.Ratings[omdb.Ratings.length-1].Value);
         for(var i=0;i<tmdb.genres.length;i++){
             $('#rate').append(tmdb.genres[i].name+ "-");
         }

@@ -6,7 +6,27 @@ req.onload = function(){
     subreq.open('GET', 'https://omdbapi.com/?i='+tmdb.imdb_id+'&plot=full&apikey=5ee63658');
     subreq.onload = function (){
         var omdb = JSON.parse(this.responseText);
-        console.log(tmdb, omdb);
+        // console.log(tmdb, omdb);
+       $('.poster').html('<img src="'+omdb.Poster+'" alt=""><div class="card-footer text-center"><button class="btn btn-primary" style="box-shadow: 1px 1px 5px black;">Add to Favourites <i class="fas fa-heart"></i></button></div>');
+        $('#plot').text(tmdb.overview);
+        $('#year').text(omdb.Year);
+        $('#time').text(omdb.Runtime);
+        $('#syn').text(omdb.Plot);
+      
+      $('.porps').append($('<div></div>').addClass('bg-primary my-3 p-2 text-light rounded').html("<span class='h5'>Directed By:- </span>  "+omdb.Director), $('<div></div>').addClass('bg-primary my-3 p-2 text-light rounded').html("<span class='h5'>Written By:- </span>  "+omdb.Writer), $('<div></div>').addClass('bg-primary my-3 p-2 text-light rounded').html("<span class='h5'>Starcast:- </span>  "+omdb.Actors), $('<div></div>').addClass('bg-primary my-3 p-2 text-light rounded').html("<span class='h5'>Accolades:-</span> "+omdb.Awards));
+        
+        
+        $('#tag').text(tmdb.tagline);
+        $('#title').text(tmdb.original_title);
+        $('#r1').text(omdb.imdbRating);
+        $('#r2').text(omdb.Rated);
+        $('#r3').text(omdb.Ratings[2].Value);
+        for(var i=0;i<tmdb.genres.length;i++){
+            $('#rate').append(tmdb.genres[i].name+ "-");
+        }
+
+        $('.preloader').fadeOut();
+        $('.whole').fadeIn();
     }
     subreq.send();
 

@@ -41,7 +41,59 @@
         <span class="navbar-toggler-icon"></span>
     </button>
 </nav>
+<button class="btn btn-primary preloader" disabled>
+    <span class="spinner-border spinner-border-sm"></span>
+    Loading..
+  </button>
 
+
+
+  <div class="whole">
+      
+    <div class="container-fluid my-5 p-3 mx-auto bg-dark" style="width: 90%; border-radius: 4px;">
+        <div class="row  p-1 mx-2 justify-content-center this" >
+            <div class="card poster"></div>
+            <div class="col-md-5 bg-light ml-5 that">
+                <div class="display-4 text-center" id="title"></div>
+                <div class="text-muted text-center h6" id="tag">Life is like a box</div>
+                <hr>
+                <div class="plot bg-primary p-2 my-2 text-light" style="border-radius: 4px;"><div class="h4">Plot</div > <p id="plot" style="text-align: justify;"></p></div>
+                <div class="plot bg-warning p-2 my-2" style="border-radius: 4px;display: flex;"> <b>Release Year:-</b> <p id="year"></p> </div>
+                <div class="plot bg-primary p-2 my-2 text-light" style="border-radius: 4px; display: flex;"> <b>Runtime:-</b> <p id="time"></p></div>
+                <div class="row bg-warning p-2 "  style="justify-content: space-evenly; border-radius: 4px; margin: auto;">
+                    <div class="rating"><div><i class="fab fa-imdb h3"></i></div><div id="r1"></div></div>
+                    <div class="rating"><div><i class="fab fa-adn h3 text-center"></i></div><div id="r2"></div></div>
+                    <div class="rating"><div><i class="fas fa-film h3"></i></div><div id="r3"></div></div>
+                    
+                </div>
+
+                <div class="plot bg-primary p-2 my-2 text-light" style="border-radius: 4px;"> <b>Genres:- </b> <p id="rate"></p></div>
+                
+
+            </div>
+        </div>
+        
+    </div>
+
+    
+
+
+
+    <div class="row my-5 p-3 mx-auto bg-dark justify-content-center" style="width: 90%;">
+        <div class="col-md-4 bg-light mx-4 rounded">
+            <div class="display-4">Synopsis</div>
+            <hr>
+            <p id="syn" class="p-3 text-justify"></p>
+        </div>
+        <div class="col-md-4 bg-light mx-4 porps my-3 rounded">
+            <div class="h1">Team</div>
+            <hr>
+            
+        </div>
+    </div>
+
+
+  </div>
 
 
 

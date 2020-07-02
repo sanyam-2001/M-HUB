@@ -1,0 +1,36 @@
+.card-footer{
+    height: 100%;
+}
+button{
+    position: relative;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+.preloader{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 50%;
+    height: 20vh;
+    font-size: 30px;
+
+}
+.whole{
+    display: none;
+}
+
+
+@media only screen and (max-width: 768px){
+    
+    .that{
+        margin-top: 15%;
+        transform: translateX(-10%);
+        border-radius: 4px;
+        display: block;
+        
+     
+
+    }
+}

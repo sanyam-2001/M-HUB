@@ -27,11 +27,43 @@ req.onload = function(){
         for(var i=0;i<tmdb.genres.length;i++){
             $('#rate').append(tmdb.genres[i].name+ "-");
         }
-
         $('.preloader').fadeOut();
-        $('.whole').fadeIn();
+            $('.whole').fadeIn();
+
+
+        
     }
     subreq.send();
+    var xml  =new XMLHttpRequest();
+        xml.open('GET', 'https://api.themoviedb.org/3/'+type+'/'+query+'/similar?api_key=7ce6f3444cda42a6506370e782b2e857&language=en-US&page=1');
+        xml.onload = function (){
+            var similar = JSON.parse(this.responseText).results;
+            for(var i =0;i<similar.length;i++){
+                $('.suggest').append(new Card(similar[i].poster_path, similar[i].original_title, similar[i].id, type).create());
+            }
+
+
+
+            
+        }
+        xml.send();
+
+    
 
 }
 req.send();
+
+
+
+window.addEventListener('click', function(e){
+    if(e.target.parentElement.classList.contains('card')){
+        localStorage.setItem('query', e.target.parentElement.children[2].innerText);
+        localStorage.setItem('type', e.target.parentElement.children[3].innerText);
+        window.location.reload();
+    }
+    else if(e.target.parentElement.parentElement.classList.contains('card')){
+        localStorage.setItem('query',e.target.parentElement.parentElement.children[2].innerText );
+        localStorage.setItem('type',e.target.parentElement.parentElement.children[3].innerText );
+        window.location.reload();
+    }
+});

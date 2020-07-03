@@ -20,6 +20,57 @@ button{
 .whole{
     display: none;
 }
+.suggest{
+    overflow: scroll;
+    display: flex;
+    flex-wrap: nowrap;
+}
+.suggest .card .card-body img{
+    width: 100%;
+}
+.suggest .card{
+    transition: 0.250s ease;
+    
+}
+.suggest .card:hover{
+    transform: scale3d(1.25, 1.25, 1);
+    cursor: pointer;
+}
+.suggest .card{
+    box-shadow: 1px 1px 10px black;
+}
+/* Card Hover Extra */
+
+.suggest .card::before{
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgb(95, 95, 95, 0.5);
+    z-index: 1;
+    transform-origin: left;
+    transform: scaleX(0);
+    transition: 0.250s ease-in;
+    
+}
+.suggest .card:hover::before{
+    transform: scaleX(1);
+    
+}
+
+.suggest .card img, .card-footer{
+    position: relative;
+    z-index: 2;
+    
+}
+.suggest .card-footer{
+    height: 8vh;
+}
+.unique{
+    display: none;
+}
 
 
 @media only screen and (max-width: 768px){
@@ -32,5 +83,19 @@ button{
         
      
 
+    }
+
+    .suggest .card{
+        height: 30vh;
+        width: 150px;
+
+    }
+    .suggest .card-body img{
+        height: 100%;
+        width: 100%;
+    }
+    .suggest .card-footer{
+        height: 10vh;
+        padding: 2px;
     }
 }

@@ -25,3 +25,12 @@ function Card(img, name, id, type){
     }
 
 }
+var fav_id, fav_type;
+if(localStorage.getItem('fav_id')===null){
+    fav_id = [];
+    fav_type=[];
+}
+else{
+    fav_id = JSON.parse(localStorage.getItem('fav_id'));
+    fav_type = JSON.parse(localStorage.getItem('fav_type'));
+}

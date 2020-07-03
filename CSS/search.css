@@ -1,11 +1,7 @@
 .card-footer{
     height: 100%;
 }
-button{
-    position: relative;
-    top: 50%;
-    transform: translateY(-50%);
-}
+
 
 .preloader{
     position: absolute;

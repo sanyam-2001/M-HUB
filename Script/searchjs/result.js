@@ -9,8 +9,16 @@ req.onload = function(){
     subreq.open('GET', 'https://omdbapi.com/?i='+x+'&plot=full&apikey=5ee63658');
     subreq.onload = function (){
         var omdb = JSON.parse(this.responseText);
-        console.log(tmdb, omdb);
-       $('.poster').html('<img src="'+omdb.Poster+'" alt=""><div class="card-footer text-center"><button class="btn btn-primary" style="box-shadow: 1px 1px 5px black;">Add to Favourites <i class="fas fa-heart"></i></button></div>');
+        //console.log(tmdb, omdb);
+      
+        if(search(fav_id, query)){
+       $('.poster').html('<img src="'+omdb.Poster+'" alt=""><div  class="card-footer text-center "><button class="btn btn-primary clicker mt-3" style="box-shadow: 1px 1px 5px black;">Added to Favourites <i class="fas fa-heart "></i></button></div>');
+
+        }
+        else{
+       $('.poster').html('<img src="'+omdb.Poster+'" alt=""><div  class="card-footer text-center "><button class="btn btn-primary clicker mt-3" style="box-shadow: 1px 1px 5px black;">Add to Favourites <i class="far fa-heart "></i></button></div>');
+
+        }
         $('#plot').text(tmdb.overview);
         $('#year').text(omdb.Year);
         $('#time').text(omdb.Runtime);
@@ -23,7 +31,12 @@ req.onload = function(){
         $('#title').text(omdb.Title);
         $('#r1').text(omdb.imdbRating);
         $('#r2').text(omdb.Rated);
+        if(omdb.Ratings.length==0){
+            $('#r3').text("UR");
+        }
+        else{
         $('#r3').text(omdb.Ratings[omdb.Ratings.length-1].Value);
+        }
         for(var i=0;i<tmdb.genres.length;i++){
             $('#rate').append(tmdb.genres[i].name+ "-");
         }
@@ -39,7 +52,14 @@ req.onload = function(){
         xml.onload = function (){
             var similar = JSON.parse(this.responseText).results;
             for(var i =0;i<similar.length;i++){
+                if(type=='movie'){
                 $('.suggest').append(new Card(similar[i].poster_path, similar[i].original_title, similar[i].id, type).create());
+                }
+                else{
+                $('.suggest').append(new Card(similar[i].poster_path, similar[i].name, similar[i].id, type).create());
+
+                }
+
             }
 
 
@@ -67,3 +87,49 @@ window.addEventListener('click', function(e){
         window.location.reload();
     }
 });
+
+function search(arr, key){
+    for(var i=0;i<arr.length;i++){
+        if(arr[i]==key){return true;}
+    }
+    return false;
+}
+
+window.addEventListener('click', function(e){
+    if(e.target.classList.contains('clicker')){
+        if(search(fav_id, query)){
+        //Remove From Lists
+        $('.clicker').html('Add to Favourites <i class="far fa-heart "></i>'); 
+        
+        for(var i=0;i<fav_id.length;i++){
+            if(fav_id[i]==query){
+                fav_id.splice(i, 1);
+                fav_type.splice(i, 1);
+                break;
+            }
+        }
+        localStorage.setItem('fav_id', JSON.stringify(fav_id));
+        localStorage.setItem('fav_type', JSON.stringify(fav_type));
+        
+        }
+        else{
+        //Add to List
+        $('.clicker').html('Added to Favourites <i class="fas fa-heart "></i>'); 
+
+        
+        fav_id.push(query);
+        fav_type.push(type);
+        localStorage.setItem('fav_id', JSON.stringify(fav_id));
+        localStorage.setItem('fav_type', JSON.stringify(fav_type));
+        }
+        
+    }
+});
+
+
+
+
+
+
+
+

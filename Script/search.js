@@ -96,7 +96,7 @@ document.addEventListener('click', function(e){
     if(e.target.classList.contains('card')){
         localStorage.setItem('query', e.target.children[2].innerText);
         localStorage.setItem('type', e.target.children[3].innerText);
-        window.open('search.html');
+        window.open('search.html',"_self");
     }
     
 })

@@ -10,3 +10,5 @@ $(document).ready(function(){
 // }
 // lJson.send();
 
+var fav_id = JSON.parse(localStorage.getItem('fav_id'));
+var fav_type = JSON.parse(localStorage.getItem('fav_type'));

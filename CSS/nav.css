@@ -15,3 +15,44 @@ ul li a:hover::after, .active::after{
     transform-origin: right;
     transform: scaleX(1);
 }
+.error{
+    
+    width: 60%;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    border: 2px solid black;
+    box-shadow: 1px 1px 20px black;
+}
+.e-h, .e-b, .e-f{
+    text-align: center;
+}
+.e-h, .e-f{
+    background-color: pink;
+    padding: 10px;
+    font-size: 30px;
+}
+.e-h{
+    border-bottom: 2px solid black;
+}
+.e-f{
+    border-top: 2px solid black;
+}
+.e-b{
+    padding: 15px;
+    font-size: 20px;
+}
+.fa-home{
+    cursor: pointer;
+}
+.card, .card-body, .card-footer{
+    cursor: pointer;
+}
+.main{
+  box-shadow: 1px 2px 10px black;
+    
+}
+.unique{
+    display: none;
+}

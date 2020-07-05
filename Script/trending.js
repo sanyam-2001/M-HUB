@@ -49,3 +49,5 @@ var explore = new XMLHttpRequest();
     $('.ltrend').on('click', function (){
         $('#trendscroll').animate({scrollLeft: '-=500'}, 800);
     });
+
+    
